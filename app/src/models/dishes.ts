@@ -3,9 +3,11 @@ export interface Dish{
     name: String,
     description: String,
     price: Number,
+    image: String,
+    //we would probably want to convert this property to an enum at a later point mapping currencies to their symbols!
     currency: String,
     category: Category,
-    availability: Availability,
+    availability: Array<Availability>,
     soldOut: Boolean,
     //We'll conventionally have prep time for a dish in minutes 
     //since that seems like the most likely real world scenario
@@ -14,14 +16,14 @@ export interface Dish{
     _Changed?: Date
 }
 
-enum Category{
+export enum Category{
     Starter = "Starter",
     MainCourse = "Main Course",
     Dessert = "Dessert",
     Beverage = "Beverage"
 }
 
-enum Availability{
+export enum Availability{
     Breakfast = "Breakfast",
     Lunch = "Lunch",
     Dinner = "Dinner",
