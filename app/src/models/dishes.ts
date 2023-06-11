@@ -1,17 +1,19 @@
 export interface Dish{
-    _id?: Number,
-    name: String,
-    description: String,
-    price: Number,
-    image: String,
+    _id?: string,
+    name: string,
+    description: string,
+    price: number,
+    image: string,
     //we would probably want to convert this property to an enum at a later point mapping currencies to their symbols!
-    currency: String,
+    currency: string,
     category: Category,
-    availability: Array<Availability>,
+    //we would want this to be an array of availibilities but implementing a multi select component
+    //in current time span would be difficul
+    availability: Availability,
     soldOut: Boolean,
     //We'll conventionally have prep time for a dish in minutes 
     //since that seems like the most likely real world scenario
-    prepTime: Number,
+    prepTime: number,
     _Created?: Date,
     _Changed?: Date
 }
