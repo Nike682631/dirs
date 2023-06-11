@@ -1,18 +1,13 @@
 <template>
-  <div id="app">
-    <section>
-      <h1>Create</h1>
-      <button>Add new dish</button>
+  <div id="app" class="p-2 bg-amber-200 h-screen w-full">
+    <section class="flex justify-end pt-2 pr-2">
+      <button class="rounded-full bg-green-500 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 text-white h-11 w-52">Add new dish</button>
     </section>
+    <dish-dialog title="Add Dish" :show="true"/>
     <section>
-      <h1>Read</h1>
-      <card v-for="dish in dishes" :dish="dish"/>
-    </section>
-    <section>
-      <h1>Update</h1>
-    </section>
-    <section>
-      <h1>Delete</h1>
+      <div class="grid gap-2 grid-cols-4 py-12">
+        <card v-for="dish in dishes" :dish="dish"/>
+      </div>
     </section>
   </div>
 </template>
@@ -22,6 +17,7 @@ import { onBeforeMount, ref } from "vue";
 import { Dish, Availability, Category } from "./models/dishes";
 import { getDishes } from "./api/api";
 import Card from "./components/Card.vue";
+import DishDialog from "./components/Dialog.vue";
 
 const dishes = ref<Array<Dish>>([]);
 
