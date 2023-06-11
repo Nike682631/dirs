@@ -1,4 +1,5 @@
-export interface dishes{
+export interface Dish{
+    _id?: Number,
     name: String,
     description: String,
     price: Number,
@@ -8,7 +9,9 @@ export interface dishes{
     soldOut: Boolean,
     //We'll conventionally have prep time for a dish in minutes 
     //since that seems like the most likely real world scenario
-    prepTime: Number
+    prepTime: Number,
+    _Created?: Date,
+    _Changed?: Date
 }
 
 enum Category{
